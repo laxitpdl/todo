@@ -54,7 +54,8 @@ while True:
             window['todos'].update(values=todos)  # ✅ Update the listbox with the new to-dos
 
 
-
+        case 'todos':  # ✅ Handle listbox selection event
+            window['todo'].update(value=values['todos'][0])  # ✅ Update the input box with the selected to-do item
 
 
 
