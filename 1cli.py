@@ -274,12 +274,14 @@ while True:
 
             todos[index] = new_todo  # Replace the old todo with the new one
 
-            functions.write_todos(todo) #, filepath="todo-app/extra.txt")
-        
+            functions.write_todos(todos) #, filepath="todo-app/extra.txt")
+
         except  ValueError:
             print("Invalid input. Please enter a valid number.")
             user_action = input("enter add, show, edit, complete or exit: ")
             user_action = user_action.strip()
+
+        except IndexError:
                   
             print("Invalid input. Please enter a valid number.")
             #user_action = input("enter add, show, edit, complete or exit: ")
