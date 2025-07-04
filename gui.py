@@ -1,6 +1,11 @@
 import functions                    # I use this to read and write my todos from file
 import PySimpleGUI as sg            # GUI library I use to create the app interface
 import time                        # For showing the live clock
+import os
+if not os.path.exists("extra.txt"):
+    with open("extra.txt", "w") as file:
+        pass
+
 
 sg.theme("black")
 
@@ -75,8 +80,8 @@ while True:
                 # My previous mistake: I tried to remove todo_to_complete directly,
                 # but todos have '\n', so remove() failed.
                 # Now I filter todos keeping only those that don't match after stripping.
-                todos.remove(todo_to_complete)
-                #todos = [t for t in todos if t.strip() != todo_to_complete]
+                #todos.remove(todo_to_complete)
+                todos = [t for t in todos if t.strip() != todo_to_complete]
 
                 functions.write_todos(todos)
                 window['todos'].update([todo.strip() for todo in todos])
